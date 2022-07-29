@@ -8,6 +8,7 @@ var Parse = {
 
   create: function(message, successCB, errorCB = null) {
     // TODO: send a request to the Parse API to save the message
+    // This is a POST request
   },
 
   readAll: function(successCB, errorCB = null) {

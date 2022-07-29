@@ -10,12 +10,27 @@ var MessagesView = {
     // when this view loads.
   },
 
-  render: function() {
+  render: function(messagesData) {
     // TODO: Render _all_ the messages.
+    // Iterate through messages data array
+    // _.each(messagesData, function (message) {
+    //   console.log(MessagesView.renderMessage(message));
+    //   // Call Messageview.render to parse into html
+    //   let $chat = $(MessageView.render(message));
+    //   console.log($chat);
+    //   console.log(MessagesView.$chats);
+    //   $chat.appendTo(MessagesView.$chats);
+      // Append to DOM in chats div
+      //this.$chats.appendTo($chat);
+    // });
   },
 
   renderMessage: function(message) {
     // TODO: Render a single message.
+    let $chat = $(MessageView.render(message));
+    console.log($chat);
+    $chat.appendTo(MessageView.$chats);
+    console.log(MessagesView.$chats);
   },
 
   handleClick: function(event) {
