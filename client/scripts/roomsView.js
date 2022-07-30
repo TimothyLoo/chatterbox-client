@@ -11,12 +11,16 @@ var RoomsView = {
     // when this view loads.
   },
 
-  render: function() {
-    // TODO: Render out the list of rooms.
-  },
+  render: _.template(`
+  <option><<%=roomname%></option>
+  `),
+  // TODO: Render out the list of rooms.
+
 
   renderRoom: function(roomname) {
     // TODO: Render out a single room.
+    let $room = $('<option value="' + roomname + '">' + roomname + '</option>');
+    $room.appendTo(RoomsView.$select);
   },
 
   handleChange: function(event) {

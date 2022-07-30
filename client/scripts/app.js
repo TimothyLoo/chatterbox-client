@@ -33,6 +33,7 @@ var App = {
       // Set messages data to message
       MessagesView.render(data);
     });
+    callback();
   },
 
   startSpinner: function() {
