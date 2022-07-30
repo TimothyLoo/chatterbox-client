@@ -23,12 +23,14 @@ var MessagesView = {
   renderMessage: function(message) {
     // TODO: Render a single message.
     let $chat = $(MessageView.render(message));
+    $chat.on('click', MessagesView.handleClick);
     $chat.appendTo(MessagesView.$chats);
   },
 
   handleClick: function(event) {
     // TODO: handle a user clicking on a message
     // (this should add the sender to the user's friend list).
+    console.log('add a friend');
   }
 
 };

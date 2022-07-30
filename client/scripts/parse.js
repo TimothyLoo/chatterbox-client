@@ -9,16 +9,10 @@ var Parse = {
   create: function(message, successCB, errorCB = null) {
     // TODO: send a request to the Parse API to save the message
     // This is a POST request
-    let obj = {
-      username: App.username,
-      text: $('#message').val(),
-      roomname: 'made up roomName'
-    };
-
     $.ajax({
       url: Parse.server,
       type: 'POST',
-      data: JSON.stringify(obj), // { order: '-createdAt' }
+      data: JSON.stringify(message), // { order: '-createdAt' }
       contentType: 'application/json',
       success: successCB,
       error: errorCB || function(error) {

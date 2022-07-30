@@ -28,9 +28,24 @@ var App = {
       // examine the response from the server request:
       console.log(data);
 
+      // sanitize function
+      var sanitizeHTML = function (str) {
+        return str.replace(/[^\w. ]/gi, function (c) {
+          return '&#' + c.charCodeAt(0) + ';';
+        });
+      };
+
+      // sanitize
+      for (let obj of data) {
+        if (obj.roomname) { obj.roomname = sanitizeHTML(obj.roomname); }
+        if (obj.text) { obj.text = sanitizeHTML(obj.text); }
+        if (obj.username) { obj.username = sanitizeHTML(obj.username); }
+      }
+
       // TODO: Use the data to update Messages and Rooms
       // and re-render the corresponding views.
       // Set messages data to message
+      RoomsView.render(data);
       MessagesView.render(data);
     });
     callback();
