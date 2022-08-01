@@ -13,6 +13,7 @@ var MessagesView = {
   render: function(messagesData) {
     // TODO: Render _all_ the messages.
     // Iterate through messages data array
+    MessagesView.$chats.html('');
     _.each(messagesData, function (message) {
       MessagesView.renderMessage(message);
       // Append to DOM in chats div

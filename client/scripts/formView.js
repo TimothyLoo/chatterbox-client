@@ -19,9 +19,13 @@ var FormView = {
     let message = {
       username: App.username,
       text: $('#message').val(),
-      roomname: 'temp' //$('#rooms select').val()
+      roomname: $('#rooms select').val()
     };
-    Parse.create(message);
+    Parse.create(message, (response) => {
+      _.extend(message, response);
+    });
+    Messages._data.unshift(message);
+    MessagesView.render(Messages._data);
   },
 
   setStatus: function(active) {

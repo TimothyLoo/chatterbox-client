@@ -9,6 +9,8 @@ var RoomsView = {
   initialize: function() {
     // TODO: Perform any work which needs to be done
     // when this view loads.
+    RoomsView.$select.on('change', RoomsView.handleChange);
+    RoomsView.$button.on('click', RoomsView.handleClick);
   },
 
   // TODO: Render out the list of rooms.
@@ -40,11 +42,21 @@ var RoomsView = {
 
   handleChange: function(event) {
     // TODO: Handle a user selecting a different room.
-    console.log(this);
+    console.log(RoomsView.$select.val());
+    MessagesView.$chats.html('');
+    _.each(Messages._data, (message) => {
+      if (message.roomname === RoomsView.$select.val()) {
+        MessagesView.renderMessage(message);
+      }
+    });
   },
 
   handleClick: function(event) {
     // TODO: Handle the user clicking the "Add Room" button.
+    let newRoom = prompt('What is the name of your new room?');
+    console.log(newRoom);
+    Rooms._data.push(newRoom);
+    RoomsView.renderRoom(newRoom);
   }
 
 };
